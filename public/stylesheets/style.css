@@ -1,8 +1,21 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #f4f3ee;
+}
+header #titulo {
+  margin-top: 70px;
+  font-weight: bold;
 }
 
-a {
-  color: #00B7FF;
+#form-login .col-md-offset-4 {
+  margin-left: 42%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#form-login .btn-success {
+  width: 70%;
+  margin-top: 10px;
+}
+#form-login .col-sm-offset-4 {
+  margin-left: 4%;
 }
