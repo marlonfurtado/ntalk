@@ -8,13 +8,13 @@ module.exports = function(app) {
     },
 
     login: function(req, res) {
-      var nome = req.body.usuarionome;
-      // var email = req.body.usuario.email;
+      var nome = req.body.usuario.nome;
+      var email = req.body.usuario.email;
 
-      if (nome){
-        // var usuario = req.body.usuario;
-        // usuario['contatos'] = [];
-        req.session.usuario = nome;
+      if (nome && email){
+        var usuario = req.body.usuario;
+        usuario['contatos'] = [];
+        req.session.usuario = usuario;
         res.redirect('/contatos');
       } else {
         res.redirect('/');
