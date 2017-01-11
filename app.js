@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var consign = require('consign');
+var cookieSession = require('cookie-session');
 
 var app = express();
 
@@ -20,6 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(cookieSession({name: 'session', keys: ['key1', 'key2']}));
 
 // consign (express-load)
 consign()
