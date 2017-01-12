@@ -38,8 +38,6 @@ consign()
 
 // socket.io
   app.io.on('connection', function(client){
-    console.log("as user connected in socket.io");
-
     client.on('send-server', function(data){
       var msg = "<b>"+data.email+":</b> "+data.msg+"<br>";
       client.emit('send-client', msg);
