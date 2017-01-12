@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var consign = require('consign');
 var cookieSession = require('cookie-session');
+var methodOverride = require('method-override');
 
 var app = express();
 
@@ -13,7 +14,6 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'images/favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -22,6 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cookieSession({name: 'session', keys: ['key1', 'key2']}));
+app.use(methodOverride('_method'));
 
 // consign (express-load)
 consign()
@@ -46,7 +47,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error', {title: "Ntalk | Agenda de contatos"});
 });
 
 module.exports = app;

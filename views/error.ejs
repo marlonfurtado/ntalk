@@ -1,3 +1,14 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
+<% include header %>
+<section class="text-center" style="margin-bottom:25%; margin-top: 10%">
+  <h1>Ntalk</h1>
+  <h4>Infelizmente houve um erro :(</h4>
+  <hr>
+  <h4>Vamos voltar para <a href="/">pagina inicial?</a> :)</h4>
+
+  <h4 style="margin-top:52px;"><%= message %></h4>
+  <h4><%= error.status %></h4>
+
+</section>
+
+
 <pre><%= error.stack %></pre>
