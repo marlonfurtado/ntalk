@@ -1,4 +1,5 @@
 var express = require('express');
+var socket_io = require('socket.io');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -9,6 +10,10 @@ var cookieSession = require('cookie-session');
 var methodOverride = require('method-override');
 
 var app = express();
+
+// socket.io
+var io = socket_io();
+app.io = io;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,6 +35,17 @@ consign()
   .then('controllers')
   .then('routes')
   .into(app);
+
+// socket.io
+  app.io.on('connection', function(client){
+    console.log("as user connected in socket.io");
+
+    client.on('send-server', function(data){
+      var msg = "<b>"+data.email+":</b> "+data.msg+"<br>";
+      client.emit('send-client', msg);
+      client.broadcast.emit('send-client', msg);
+    });
+  });
 
 
 // catch 404 and forward to error handler
