@@ -35,16 +35,9 @@ consign()
   .then('controllers')
   .then('routes')
   .into(app);
-
-// socket.io
-  app.io.on('connection', function(client){
-    client.on('send-server', function(data){
-      var msg = "<b>"+data.email+":</b> "+data.msg+"<br>";
-      client.emit('send-client', msg);
-      client.broadcast.emit('send-client', msg);
-    });
-  });
-
+consign()
+  .include('sockets')
+  .into(io);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

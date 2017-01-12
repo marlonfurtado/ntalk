@@ -6,8 +6,8 @@ if(window.location.hostname == 'localhost') {
   var socket = io.connect(window.location.hostname+":3000");
 } else {
   var socket = io.connect(window.location.hostname);
-  console.log(window.location.hostname);
 }
+
 socket.on('send-client', function(msg){
   document.getElementById('chat').innerHTML += msg;
 });
