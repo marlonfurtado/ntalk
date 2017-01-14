@@ -13,9 +13,8 @@ socket.on('send-client', function(msg){
 });
 
 var enviar = function(){
-  var email = document.getElementById('email').value;
-  var msg = document.getElementById('msg').value;
-  socket.emit('send-server', {email: email, msg: msg});
+  var msg = document.getElementById('msg');
+  socket.emit('send-server', msg.value);
 };
 </script>
 
@@ -24,7 +23,6 @@ var enviar = function(){
 </header>
 <section>
   <pre id="chat"></pre>
-  <input type="hidden" id="email" value="<%= email %>">
   <input type="text" id="msg" placeholder="Mensagem">
   <button onclick="enviar();">Enviar</button>
 </section>
