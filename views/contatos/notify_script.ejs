@@ -1,0 +1,35 @@
+<script src="/socket.io/socket.io.js"></script>
+<script>
+if(window.location.hostname == 'localhost') {
+  var socket = io.connect('http://localhost:3000');
+} else {
+  var socket = io.connect(window.location.hostname);
+}
+
+var notify = function(data) {
+  var id = 'notify_' + data.el;
+  var notify = document.getElementById(id);
+  if (notify != null){
+    notify.textContent = data.msg;
+  }
+};
+
+socket.on('notify-onlines', function(email) {
+  notify({el: email, msg: 'Online'});
+});
+
+socket.on('notify-offline', function(email) {
+  notify({el: email, msg: 'Offline'});
+});
+
+socket.on('new-message', function(data) {
+  notify({el: data.email, msg: 'Mensagem'});
+  var id = 'chat_' + data.email;
+  var chat = document.getElementById(id);
+  chat.href += '?sala=' + data.sala;
+
+  console.log(data.email);
+  console.log(data.sala);
+  console.log(chat.href);
+});
+</script>
