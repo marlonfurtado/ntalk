@@ -1,9 +1,21 @@
-body {
-  background-color: #f4f3ee;
+#background-index {
+  background-image: url('../images/background-index.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 header #titulo {
-  margin-top: 70px;
+  margin-top: 10%;
   font-weight: bold;
+}
+
+header h1 p small {
+  color: #FFFFFF;
+}
+
+#form-login {
+  margin-top: 40px;
+  padding-bottom: 388px;
 }
 
 #form-login .col-md-offset-4 {
@@ -18,4 +30,9 @@ header #titulo {
 }
 #form-login .col-sm-offset-4 {
   margin-left: 4%;
+}
+
+.edit-input {
+  width: 200px;
+  display: inline-block;
 }

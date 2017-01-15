@@ -20,13 +20,18 @@ var enviar = function(){
 };
 </script>
 
-<header>
+<header class="row-fluid text-center">
   <h2>Ntalk - Chat</h2>
 </header>
-<section>
-  <pre id="chat"></pre>
-  <input type="text" id="msg" placeholder="Mensagem">
-  <input type="button" onclick="enviar();" value="Enviar">
+<section class="row-fluid">
+  <div class="well span6 offset3">
+    <pre id="chat" class="pre-scrollable" style="width:auto;height:400px;"></pre>
+    <div class="input-append">
+      <input type="text" id="msg" class="input-xlarge" placeholder="Digite sua mensagem">
+      <input type="button" onclick="enviar();" class="btn btn-success" value="Enviar">
+      <a href="/contatos" class="btn btn-default">Sair do chat</a>
+    </div>
+  </div>
 </section>
 
 <% include ../exit %>

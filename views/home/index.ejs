@@ -1,40 +1,41 @@
 <% include ../header %>
+<div id="background-index">
+  <div class="container-fluid">
 
-<div class="container-fluid">
+    <header class="row-fluid text-center">
+      <h1 id="titulo">
+        Ntalk!
+        <p><small>Bem vindo</small></p>
+      </h1>
+    </header>
 
-  <header class="row-fluid text-center">
-    <h1 id="titulo">
-      Ntalk
-      <p><small>Bem vindo!</small></p>
-    </h1>
-  </header>
+    <section>
+      <div class="row-fluid" id="form-login">
+        <div class="col-md-6 col-md-offset-4">
+          <form action="/entrar" method="post" class="form-horizontal">
+            <div class="form-group">
+              <div class="col-sm-4">
+                <input type="text" name="usuario[nome]" class="form-control" id="inputName" placeholder="Digite seu nome">
+              </div>
+            </div>
 
-  <section class="row-fluid" id="form-login">
-    <div class="col-md-6 col-md-offset-4">
+            <div class="form-group">
+              <div class="col-sm-4">
+                <input type="email" name="usuario[email]" class="form-control" id="inputEmail" placeholder="Digite seu e-mail">
+              </div>
+            </div>
 
-      <form action="/entrar" method="post" class="form-horizontal">
-        <div class="form-group">
-          <div class="col-sm-4">
-            <input type="text" name="usuario[nome]" class="form-control" id="inputName" placeholder="Digite seu nome">
-          </div>
+            <div class="form-group">
+              <div class="col-sm-offset-4 col-sm-4">
+                <button type="submit" class="btn btn-success">Entrar</button>
+              </div>
+            </div>
+          </form>
         </div>
+      </div>
+    </section>
 
-        <div class="form-group">
-          <div class="col-sm-4">
-            <input type="email" name="usuario[email]" class="form-control" id="inputEmail" placeholder="Digite seu e-mail">
-          </div>
-        </div>
+  </div>
 
-        <div class="form-group">
-          <div class="col-sm-offset-4 col-sm-4">
-            <button type="submit" class="btn btn-success">Entrar</button>
-          </div>
-        </div>
-      </form>
-
-    </div>
-  </section>
-
+  <% include ../footer %>
 </div>
-
-<% include ../footer %>
